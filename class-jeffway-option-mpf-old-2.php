@@ -3,7 +3,7 @@
 /**
 * Post Notice Class
 */
-class JeffwayOptionMPF extends SettingsCallbacks
+class JeffwayOptionMPF
 {
 	public $options;
 
@@ -20,7 +20,7 @@ class JeffwayOptionMPF extends SettingsCallbacks
 			string 		$page_title,
 			string 		$menu_title,
 			string 		$capability,
-			string 		$menu_slug or $page_slug,
+			string 		$menu_slug,
 			callable 	$function = '',
 			string 		$icon_url = '',
 			int 		$position = null
@@ -53,7 +53,7 @@ class JeffwayOptionMPF extends SettingsCallbacks
 				<?php
 				
 				// output security fields
-				settings_fields( 'jw_options' );
+				settings_fields( 'myplugin_options' );
 				
 				// output setting sections
 				do_settings_sections( 'jw-option-mpf' );
@@ -72,18 +72,20 @@ class JeffwayOptionMPF extends SettingsCallbacks
 	public function jwRegisterSettingsAndFields() {
 
 		/*
-		register_setting (
-			string 		$options_group,
-			string 		$options_name,
-			callable 	$sanize_callback
-		)
-		*/
-
+		
 		register_setting( 
-			'jw_options', 
-			'jw_options', 
-			array( $this, 'jwValidateOptions')
-		 );
+			string   $option_group, 
+			string   $option_name, 
+			callable $sanitize_callback
+		);
+		
+		*/
+		
+		register_setting( 
+			'myplugin_options', 
+			'myplugin_options', 
+			array( $this, 'myplugin_callback_validate_options' ) 
+		); 		
 
 		/*
 		
@@ -97,18 +99,18 @@ class JeffwayOptionMPF extends SettingsCallbacks
 		*/
 		
 		add_settings_section( 
-			'myplugin_section_one', 
-			'Customize Section One', 
-			array( $this, 'jwCallbackSectionOne' ),
+			'myplugin_section_login', 
+			'Customize Login Page', 
+			array($this, 'myplugin_callback_section_login'), 
 			'jw-option-mpf'
 		);
 		
 		add_settings_section( 
-			'myplugin_section_two', 
-			'Customize Section Two', 
-			array( $this, 'jwCallbackSectionTwo' ),
+			'myplugin_section_admin', 
+			'Customize Admin Area', 
+			array($this, 'myplugin_callback_section_admin'), 
 			'jw-option-mpf'
-		);	
+		);
 
 		/*
 
@@ -126,11 +128,90 @@ class JeffwayOptionMPF extends SettingsCallbacks
 		add_settings_field(
 			'custom_url',
 			'Custom URL',
-			array( $this, 'jwCallbackFieldText' ),
+			array($this, 'myplugin_callback_field_text'),
 			'jw-option-mpf',
-			'myplugin_section_one',
+			'myplugin_section_login',
 			[ 'id' => 'custom_url', 'label' => 'Custom URL for the login logo link' ]
-		);			
+		);				
+
+
 	}
 
+	// validate plugin settings
+	function myplugin_validate_options($input) {
+		
+		// todo: add validation functionality..
+		
+		return $input;
+		
+	}
+
+	// validate plugin settings
+	function myplugin_callback_section_login() {
+		
+		echo "section one";		
+		
+	}
+
+	// validate plugin settings
+	function myplugin_callback_section_admin() {
+		
+		echo "section two";		
+	}		
+
+	// callback: text field
+	function myplugin_callback_field_text( $args ) {
+		
+		$options = get_option( 'myplugin_options', myplugin_options_default() );
+		
+		$id    = isset( $args['id'] )    ? $args['id']    : '';
+		$label = isset( $args['label'] ) ? $args['label'] : '';
+		
+		$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
+		
+		echo '<input id="myplugin_options_'. $id .'" name="myplugin_options['. $id .']" type="text" size="40" value="'. $value .'"><br />';
+		echo '<label for="myplugin_options_'. $id .'">'. $label .'</label>';
+		
+	}
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

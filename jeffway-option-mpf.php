@@ -20,8 +20,10 @@ if ( ! defined( 'WPINC' ) ) {
 // echo plugins_url( '/assets/js/admin.js', __FILE__ );
 // die;
 
-require_once( plugin_dir_path( __FILE__ ) . 'class-jeffway-option-mpf.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'class-enqueue.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'class-settings-callbacks.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'class-jeffway-option-mpf.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'class-frontend-display.php' );
 
 function moose_post_notice_start() {
 
@@ -29,6 +31,8 @@ function moose_post_notice_start() {
 	$setup_styles->initialize();
 
 	$setup_options = new JeffwayOptionMPF();
+
+	$frontend_display = new FrontendDisplayMPF();
 }
 
 moose_post_notice_start();

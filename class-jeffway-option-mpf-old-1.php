@@ -133,9 +133,9 @@ class JeffwayOptionMPF
 		);			
 	}
 
-	public function jwValidateOptions() {
+	public function jwValidateOptions( $input ) {
 
-		
+		return $input;
 	}
 
 	public function jwCallbackSectionOne() {
@@ -149,7 +149,7 @@ class JeffwayOptionMPF
 	}
 
 	// default plugin options
-	public function myplugin_options_default() {
+	public function jw_options_default() {
 
 		return array(
 			'custom_url'     => 'https://wordpress.org/',
@@ -165,50 +165,21 @@ class JeffwayOptionMPF
 
 	public function jwCallbackFieldText( $args ) {
 
+		$options = get_option( 'jw_options', jw_options_default() );
+		
 		$id    = isset( $args['id'] )    ? $args['id']    : '';
-		$label = isset( $args['label'] ) ? $args['label'] : '';		
-
+		$label = isset( $args['label'] ) ? $args['label'] : '';
+		
 		$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
-		# code...
-		echo "<input type='text' name='jw_options[custom_url]' value=". $this->options['custom_url'] .">";
-		echo $this->options['custom_url'];
-
-		$options = get_option( 'jw_options' );
-		// $options = get_option( 'jw_options', $this->myplugin_options_default() );
+		
+		echo '<input id="jw_options_'. $id .'" name="jw_options['. $id .']" type="text" size="40" value="'. $value .'"><br />';
+		echo '<label for="jw_options_'. $id .'">'. $label .'</label>';		
 
 		echo "<pre>the options:";
 		echo print_r($id);
 		echo var_dump($options);
 		echo "</pre>";		
 	}
-
-
-
-	// callback: text field
-	// public function jwCallbackFieldText( $args ) {
-		
-	// 	$options = get_option( 'jw_options' );
-	// 	// $options = get_option( 'jw_options', $this->myplugin_options_default() );
-
-	// 	echo "<pre>the options:";
-	// 	echo print_r($options);
-	// 	echo var_dump($options);
-	// 	echo "</pre>";
-		
-	// 	$id    = isset( $args['id'] )    ? $args['id']    : '';
-	// 	$label = isset( $args['label'] ) ? $args['label'] : '';
-		
-	// 	echo "<pre>the id:";
-	// 	echo print_r($id) . "<br>";
-	// 	echo print_r($label);
-	// 	echo "</pre>";
-
-	// 	$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
-		
-	// 	echo '<input id="jw_options_'. $id .'" name="jw_options['. $id .']" type="text" size="40" value="'. $value .'"><br />';
-	// 	echo '<label for="jw_options_'. $id .'">'. $label .'</label>';
-		
-	// }	
 }
 
 
