@@ -6656,4 +6656,13 @@ a {
   #mpf-header-box h4 {
     color: dodgerblue; }
 
+.options-content {
+  padding-bottom: 3rem; }
+  .options-content .list-group-item {
+    background-color: #e2d1fd;
+    margin-bottom: 1rem; }
+
+pre {
+  color: white; }
+
 /*# sourceMappingURL=public.css.map */

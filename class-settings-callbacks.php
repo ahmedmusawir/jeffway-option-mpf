@@ -53,9 +53,45 @@ class SettingsCallbacks {
 		// echo "<pre>the options:";
 		// echo var_dump($options);
 		// echo "</pre>";		
-	}
-}
 
+		// echo "<pre>the ARGS:";
+		// echo var_dump($args);
+		// echo "</pre>";
+	}
+
+	// callback: radio field
+	public function jwCallbackFieldRadio( $args ) {
+		
+		$options = get_option( 'jw_options', $this->jw_options_default() );
+		
+		$id    = isset( $args['id'] )    ? $args['id']    : '';
+		$label = isset( $args['label'] ) ? $args['label'] : '';
+		
+		$selected_option = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
+		
+		$radio_options = array(
+			
+			'enable'  => 'Enable custom styles',
+			'disable' => 'Disable custom styles'
+			
+		);
+		
+		foreach ( $radio_options as $value => $label ) {
+			
+			$checked = checked( $selected_option === $value, true, false );
+			
+			echo '<label><input name="jw_options['. $id .']" type="radio" value="'. $value .'"'. $checked .'> ';
+			echo '<span>'. $label .'</span></label><br />';
+			
+		}
+
+		// echo "<pre>the options:";
+		// echo var_dump($options);
+		// echo "</pre>";
+		
+	}
+
+}
 
 
 

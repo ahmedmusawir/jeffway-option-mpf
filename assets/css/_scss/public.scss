@@ -24,6 +24,21 @@
 	}
 }
 
+.options-content {
+
+	padding-bottom: 3rem;
+
+	.list-group-item {
+		background-color:  lighten($indigo, 40%);
+		// color: white;
+		margin-bottom: 1rem;
+	}
+}
+
+pre {
+	color: white;
+}
+
 
 
 

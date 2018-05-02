@@ -129,8 +129,54 @@ class JeffwayOptionMPF extends SettingsCallbacks
 			array( $this, 'jwCallbackFieldText' ),
 			'jw-option-mpf',
 			'myplugin_section_one',
-			[ 'id' => 'custom_url', 'label' => 'Custom URL for the login logo link' ]
+			[ 'id' => 'custom_url', 'label' => 'Custom URL - Basic Text Input' ]
+		);			
+
+		add_settings_field(
+			'custom_title',
+			'Custom Title',
+			array( $this, 'jwCallbackFieldText' ),
+			'jw-option-mpf',
+			'myplugin_section_one',
+			[ 'id' => 'custom_title', 'label' => 'Custom Title - Basic Text 2 Input' ]
+		);	
+
+		add_settings_field(
+			'custom_radio',
+			'Custom Radio',
+			array( $this, 'jwCallbackFieldRadio' ),
+			'jw-option-mpf',
+			'myplugin_section_one',
+			[ 'id' => 'custom_radio', 'label' => 'Custom Radio - Basic Radio Input' ]
 		);			
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
