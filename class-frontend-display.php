@@ -24,6 +24,9 @@ class FrontendDisplayMPF extends JeffwayOptionMPF
 
 	public function displayResults( $content ) {
 
+		$checkbox_enabled = false;
+		$select = 'default';
+
 		$options = get_option( 'jw_options', $this->jw_options_default() );
 
 		// CUSTOM TEXT FIELD 1
@@ -47,6 +50,29 @@ class FrontendDisplayMPF extends JeffwayOptionMPF
 			$radio = sanitize_text_field( $options['custom_radio'] );
 		}
 
+		// CUSTOM TEXT AREA 
+		if ( isset( $options['custom_textarea'] ) && ! empty( $options['custom_textarea'] ) ) {
+		
+			$textarea = wp_kses_post( $options['custom_textarea'] ) . $textarea;
+			
+		}
+
+		// CUSTOM CHECK BOX 
+		// $toolbar = false;
+	
+		if ( isset( $options['custom_checkbox'] ) && ! empty( $options['custom_checkbox'] ) ) {
+			
+			$checkbox_enabled = (bool) $options['custom_checkbox'];
+			
+		}
+
+		// CUSTOM SELECT 
+		if ( isset( $options['custom_select'] ) && ! empty( $options['custom_select'] ) ) {
+		
+			$select = sanitize_text_field( $options['custom_select'] );
+			
+		}
+
 		?>
 
 
@@ -63,6 +89,9 @@ class FrontendDisplayMPF extends JeffwayOptionMPF
 					<li class="list-group-item"><?php echo "Custom URL:&nbsp; " . $url; ?></li>
 					<li class="list-group-item"><?php echo "Custom Title:&nbsp; " . $title; ?></li>
 					<li class="list-group-item"><?php echo "Custom Radio:&nbsp; " . $radio; ?></li>
+					<li class="list-group-item"><?php echo "Custom TextArea:&nbsp; " . $textarea; ?></li>
+					<li class="list-group-item"><?php echo "Custom Checkbox:&nbsp; " . $checkbox_enabled; ?></li>
+					<li class="list-group-item"><?php echo "Custom Select:&nbsp; " . $select; ?></li>
 				</ul>
 			</div>
 			

@@ -6657,7 +6657,8 @@ a {
     color: dodgerblue; }
 
 .options-content {
-  padding-bottom: 3rem; }
+  padding-bottom: 3rem;
+  margin-right: 2rem; }
   .options-content .list-group-item {
     background-color: #e2d1fd;
     margin-bottom: 1rem; }

@@ -91,6 +91,79 @@ class SettingsCallbacks {
 		
 	}
 
+	// callback: textarea field
+	public function jwCallbackFieldTextarea( $args ) {
+		
+		$options = get_option( 'jw_options', $this->jw_options_default() );
+		
+		$id    = isset( $args['id'] )    ? $args['id']    : '';
+		$label = isset( $args['label'] ) ? $args['label'] : '';
+		
+		$allowed_tags = wp_kses_allowed_html( 'post' );
+		
+		$value = isset( $options[$id] ) ? wp_kses( stripslashes_deep( $options[$id] ), $allowed_tags ) : '';
+		
+		echo '<textarea id="jw_options_'. $id .'" name="jw_options['. $id .']" rows="5" cols="50">'. $value .'</textarea><br />';
+		echo '<label for="jw_options_'. $id .'">'. $label .'</label>';
+		
+	}	
+
+	// callback: checkbox field
+	function jwCallbackFieldCheckbox( $args ) {
+		
+		$options = get_option( 'jw_options', $this->jw_options_default() );
+		
+		$id    = isset( $args['id'] )    ? $args['id']    : '';
+		$label = isset( $args['label'] ) ? $args['label'] : '';
+		
+		$checked = isset( $options[$id] ) ? checked( $options[$id], 1, false ) : '';
+		
+		echo '<input id="jw_options_'. $id .'" name="jw_options['. $id .']" type="checkbox" value="1"'. $checked .'> ';
+		echo '<label for="jw_options_'. $id .'">'. $label .'</label>';
+
+		// echo "<pre>the options:";
+		// echo var_dump($options);
+		// echo "</pre>";
+		
+	}	
+
+	// callback: select field
+	public function jwCallbackFieldSelect( $args ) {
+		
+		$options = get_option( 'jw_options', $this->jw_options_default() );
+		
+		$id    = isset( $args['id'] )    ? $args['id']    : '';
+		$label = isset( $args['label'] ) ? $args['label'] : '';
+		
+		$selected_option = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
+		
+		$select_options = array(
+			
+			'default'   => 'Default',
+			'light'     => 'Light',
+			'blue'      => 'Blue',
+			'coffee'    => 'Coffee',
+			'ectoplasm' => 'Ectoplasm',
+			'midnight'  => 'Midnight',
+			'ocean'     => 'Ocean',
+			'sunrise'   => 'Sunrise',
+			
+		);
+		
+		echo '<select id="jw_options_'. $id .'" name="jw_options['. $id .']">';
+		
+		foreach ( $select_options as $value => $option ) {
+			
+			$selected = selected( $selected_option === $value, true, false );
+			
+			echo '<option value="'. $value .'"'. $selected .'>'. $option .'</option>';
+			
+		}
+		
+		echo '</select> <label for="jw_options_'. $id .'">'. $label .'</label>';
+		
+	}	
+
 }
 
 

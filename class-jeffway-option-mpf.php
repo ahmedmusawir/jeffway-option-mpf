@@ -123,6 +123,8 @@ class JeffwayOptionMPF extends SettingsCallbacks
 
 		*/
 
+		// FOR SECTION ONE 
+		
 		add_settings_field(
 			'custom_url',
 			'Custom URL',
@@ -148,6 +150,35 @@ class JeffwayOptionMPF extends SettingsCallbacks
 			'jw-option-mpf',
 			'myplugin_section_one',
 			[ 'id' => 'custom_radio', 'label' => 'Custom Radio - Basic Radio Input' ]
+		);
+
+		// FOR SECTION TWO 
+
+		add_settings_field(
+			'custom_textarea',
+			'Custom Text Area',
+			array( $this, 'jwCallbackFieldTextarea' ),
+			'jw-option-mpf',
+			'myplugin_section_two',
+			[ 'id' => 'custom_textarea', 'label' => 'Custom Textarea - Basic TextArea Input' ]
+		);
+
+		add_settings_field(
+			'custom_checkbox',
+			'Custom Checkbox',
+			array( $this, 'jwCallbackFieldCheckbox' ),
+			'jw-option-mpf',
+			'myplugin_section_two',
+			[ 'id' => 'custom_checkbox', 'label' => 'Custom Textarea - Basic TextArea Input' ]
+		);
+
+		add_settings_field(
+			'custom_select',
+			'Custom Select',
+			array( $this, 'jwCallbackFieldSelect' ),
+			'jw-option-mpf',
+			'myplugin_section_two',
+			[ 'id' => 'custom_select', 'label' => 'Custom Textarea - Basic TextArea Input' ]
 		);			
 	}
 
