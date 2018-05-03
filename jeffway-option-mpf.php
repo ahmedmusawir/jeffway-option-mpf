@@ -21,6 +21,7 @@ if ( ! defined( 'WPINC' ) ) {
 // die;
 
 require_once( plugin_dir_path( __FILE__ ) . 'class-enqueue.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'class-settings-validation.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'class-settings-callbacks.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'class-jeffway-option-mpf.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'class-frontend-display.php' );

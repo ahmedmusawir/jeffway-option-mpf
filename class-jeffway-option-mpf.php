@@ -11,6 +11,7 @@ class JeffwayOptionMPF extends SettingsCallbacks
 	{
 		add_action( 'admin_menu', array(  $this, 'addMenuPage' ) );
 		add_action( 'admin_init', array( $this, 'jwRegisterSettingsAndFields' ) );
+
 	}
 
 	public function addMenuPage() {
