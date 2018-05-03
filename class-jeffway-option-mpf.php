@@ -48,7 +48,7 @@ class JeffwayOptionMPF extends SettingsCallbacks
 	
 		<div class="wrap">
 			<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
-			<form action="options.php" method="post">
+			<form action="options.php" method="post" enctype="multipart/form-data">
 				
 				<?php
 				
@@ -150,6 +150,15 @@ class JeffwayOptionMPF extends SettingsCallbacks
 			'jw-option-mpf',
 			'myplugin_section_one',
 			[ 'id' => 'custom_radio', 'label' => 'Custom Radio - Basic Radio Input' ]
+		);
+
+		add_settings_field(
+			'custom_image',
+			'Custom Image',
+			array( $this, 'jwCallbackFieldImage' ),
+			'jw-option-mpf',
+			'myplugin_section_one',
+			[ 'id' => 'custom_image', 'label' => 'Custom Image - File Upload' ]
 		);
 
 		// FOR SECTION TWO 

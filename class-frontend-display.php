@@ -11,21 +11,20 @@
 */
 class FrontendDisplayMPF extends JeffwayOptionMPF
 {
-	
+
+
 	function __construct()
 	{
 		# code...
 		// add_action( 'wp_head', array( $this, 'mooseTesting1' ), 10 );
 		// add_action( 'wp_head', array( $this, 'mooseTesting2' ), 11 );
 		// add_action( 'wp_footer', array( $this, 'mooseTesting3' ), 12 );
-		add_action( 'wp_head', array( $this, 'displayResults' ) );
-		// add_filter( 'the_content', array( $this, 'displayResults' ) );
+		// add_action( 'wp_head', array( $this, 'displayResults' ) );
+		add_filter( 'the_content', array( $this, 'displayResults' ) );
 	}
 
 	public function displayResults( $content ) {
 
-		$checkbox_enabled = false;
-		$select = 'default';
 
 		$options = get_option( 'jw_options', $this->jw_options_default() );
 
@@ -34,6 +33,9 @@ class FrontendDisplayMPF extends JeffwayOptionMPF
 		if ( isset( $options['custom_url'] ) && ! empty( $options['custom_url'] ) ) {
 
 			$url = esc_url( $options['custom_url'] );
+		} else {
+			
+			$url = '';
 		}
 
 		// CUSTOM TEXT FIELD 2
@@ -41,6 +43,9 @@ class FrontendDisplayMPF extends JeffwayOptionMPF
 		if ( isset( $options['custom_title'] ) && ! empty( $options['custom_title'] ) ) {
 
 			$title = esc_attr( $options['custom_title'] );
+		} else {
+
+			$title = '';
 		}
 
 		// CUTOM RADIO FIELD
@@ -48,13 +53,19 @@ class FrontendDisplayMPF extends JeffwayOptionMPF
 		if ( isset( $options['custom_radio'] ) && ! empty( $options['custom_radio'] ) ) {
 
 			$radio = sanitize_text_field( $options['custom_radio'] );
+		} else {
+		
+			$radio = '';
 		}
 
 		// CUSTOM TEXT AREA 
 		if ( isset( $options['custom_textarea'] ) && ! empty( $options['custom_textarea'] ) ) {
 		
-			$textarea = wp_kses_post( $options['custom_textarea'] ) . $textarea;
+			$textarea = wp_kses_post( $options['custom_textarea'] );
 			
+		} else {
+		
+			$textarea = '';
 		}
 
 		// CUSTOM CHECK BOX 
@@ -64,6 +75,9 @@ class FrontendDisplayMPF extends JeffwayOptionMPF
 			
 			$checkbox_enabled = (bool) $options['custom_checkbox'];
 			
+		} else {
+		
+			$checkbox_enabled = '';
 		}
 
 		// CUSTOM SELECT 
@@ -71,6 +85,19 @@ class FrontendDisplayMPF extends JeffwayOptionMPF
 		
 			$select = sanitize_text_field( $options['custom_select'] );
 			
+		} else {
+		
+			$select = '';
+		}
+
+		// CUSTOM IMAGE
+		if ( isset( $options['custom_image'] ) && ! empty( $options['custom_image'] ) ) {
+		
+			$image = $options['custom_image'];
+			
+		} else {
+		
+			$image = '';
 		}
 
 		?>
@@ -80,9 +107,9 @@ class FrontendDisplayMPF extends JeffwayOptionMPF
 
 		<section id="frontend-options-display">
 
-			<pre>
-				<?php var_dump($options); ?>
-			</pre>
+			<!-- <pre> -->
+				<?php //var_dump($options); ?>
+			<!-- </pre> -->
 
 			<div class="options-content">
 				<ul class="list-group">
@@ -92,6 +119,7 @@ class FrontendDisplayMPF extends JeffwayOptionMPF
 					<li class="list-group-item"><?php echo "Custom TextArea:&nbsp; " . $textarea; ?></li>
 					<li class="list-group-item"><?php echo "Custom Checkbox:&nbsp; " . $checkbox_enabled; ?></li>
 					<li class="list-group-item"><?php echo "Custom Select:&nbsp; " . $select; ?></li>
+					<li class="list-group-item"><?php echo "Custom Image:&nbsp; " . $image; ?></li>
 				</ul>
 			</div>
 			
