@@ -16,24 +16,43 @@ if ( ! defined( 'WPINC' ) ) {
 	die("Cannot Access Directly");
 }
 
-// echo plugin_dir_path( __FILE__ );
-// echo plugins_url( '/assets/js/admin.js', __FILE__ );
-// die;
-
+//Scripts Enqueue
 require_once( plugin_dir_path( __FILE__ ) . 'class-enqueue.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'class-settings-validation.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'class-settings-callbacks.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'class-jeffway-option-mpf.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'class-frontend-display.php' );
+
+//Custom Post Type 
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Cpt/class-custom-post.php' );
+
+
+//Admin Main Page
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/AdminMenu/class-settings-validation.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/AdminMenu/class-settings-callbacks.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/AdminMenu/class-jeffway-option-mpf.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/AdminMenu/class-frontend-display.php' );
+
+//Admin Sub Menu Page
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/AdminSubMenu/class-submenu-settings-validation.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/AdminSubMenu/class-submenu-settings-callbacks.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/AdminSubMenu/class-submenu-option-mpf.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/AdminSubMenu/class-submenu-frontend-display.php' );
 
 function moose_post_notice_start() {
 
+	//SCRIPTS ENQUEUE
 	$setup_styles = new MPFEnqueue();
 	$setup_styles->initialize();
 
+	//MAIN MENU INSTANCES
 	$setup_options = new JeffwayOptionMPF();
 
 	$frontend_display = new FrontendDisplayMPF();
+
+	//SUBMENU INSTANCES
+	$submenu_options = new SubmenuOptionMPF();
+
+	$submenu_frontend_display = new SubmenuFrontendDisplayMPF();
+
+	//MAKE PORTFOLIO CUSTOM POST TYPE 
+	$make_cpt = new CustomPostType();
 }
 
 moose_post_notice_start();
