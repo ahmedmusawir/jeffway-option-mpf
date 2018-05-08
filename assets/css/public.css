@@ -6630,19 +6630,6 @@ a {
 =            MOBILE WHITE SPACE REMOVAL            =
 ==================================================*/
 /*=====  End of MOBILE WHITE SPACE REMOVAL  ======*/
-/*=======================================================
-=            Customize Bootstrap 4 Variables            =
-=======================================================*/
-/*==============================
-=            COLORS            =
-==============================*/
-/*=====  End of COLORS  ======*/
-/**
- *
- * FONTS
- *
- */
-/*=====  End of Customize Bootstrap 4 Variables  ======*/
 /*=======================================
 =       PUBLIC:  PLUGIN STYLES          =
 =======================================*/
@@ -6665,5 +6652,14 @@ a {
 
 pre {
   color: white; }
+
+.post-notice-meta {
+  padding: 3rem 2rem;
+  background-color: dodgerblue;
+  color: white; }
+  .post-notice-meta p {
+    color: white; }
+  .post-notice-meta h4 {
+    color: #b7dbff; }
 
 /*# sourceMappingURL=public.css.map */

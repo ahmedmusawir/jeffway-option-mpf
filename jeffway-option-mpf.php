@@ -16,11 +16,20 @@ if ( ! defined( 'WPINC' ) ) {
 	die("Cannot Access Directly");
 }
 
+define( "PLUGIN_DIR", ABSPATH . 'wp-content/plugins/jeffway-option-mpf' );
 //Scripts Enqueue
 require_once( plugin_dir_path( __FILE__ ) . 'class-enqueue.php' );
 
 //Custom Post Type 
 require_once( plugin_dir_path( __FILE__ ) . '/inc/Cpt/class-custom-post.php' );
+
+//Custom Metabox 
+// require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-custom-metabox.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-metabox-textarea.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-metabox-text-input.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-metabox-select.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-metabox-checkbox.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-checkbox-test.php' );
 
 
 //Admin Main Page
@@ -53,6 +62,21 @@ function moose_post_notice_start() {
 
 	//MAKE PORTFOLIO CUSTOM POST TYPE 
 	$make_cpt = new CustomPostType();
+
+	//CUSTOM META BOX IN POST NOTICE
+	// $make_metabox = new AddCustomMetaboxMPF();
+
+	//MPF TEXTARAE META BOX 
+	$make_textarea = new MPFAddCustomMetaboxTextArea();
+
+	//MPF TEXT INPUT META BOX 
+	$make_text_input = new MPFAddCustomMetaboxTextInput();
+
+	//MPF SELECT META BOX 
+	$make_select = new MPFAddCustomMetaboxSelect();
+
+	//MPF CHECKBOX META BOX 
+	$make_checkbox = new MPFAddCustomMetaboxCheckbox();
 }
 
 moose_post_notice_start();
@@ -64,3 +88,95 @@ register_activation_hook( __FILE__, array( 'MooseActivate', 'activate' ) );
 // Activation
 require_once plugin_dir_path( __FILE__ ) . 'inc/Base/class-deactivate.php';
 register_activation_hook( __FILE__, array( 'MooseDeactivate', 'deactivate' ) );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

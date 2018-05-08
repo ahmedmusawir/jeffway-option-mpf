@@ -1,5 +1,29 @@
-<?php 
 
+
+===========================================================================================================================
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+</p>
+<p>
+Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh.
+</p>
+<p>
+Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Donec rutrum congue leo eget malesuada. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>
+<?php 
+===========================================================
+
+
+function sl_meta_box_sidebar(){
+    global $post;
+    $custom = get_post_custom($post->ID);
+    $sl_meta_box_sidebar = $custom["sl-meta-box-sidebar"][0]; 
+?>
+
+<input type="checkbox" name="sl-meta-box-sidebar" <?php if( $sl_meta_box_sidebar == true ) { ?>checked="checked"<?php } ?> />  Check the Box.
+
+
+<?php }
+
+===========================================================
 $upload_overrides = array( "test_form" => false );
 
 $uploaded_file = wp_handle_upload ($file, $upload_overrides);

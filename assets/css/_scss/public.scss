@@ -3,7 +3,7 @@
 =============================*/
 
 @import "global";
-@import "custom";
+// @import "custom";
 
 /*=======================================
 =       PUBLIC:  PLUGIN STYLES          =
@@ -38,6 +38,19 @@
 
 pre {
 	color: white;
+}
+
+.post-notice-meta {
+	padding: 3rem 2rem;
+	background-color: dodgerblue;
+	color: white;
+
+	p {
+		color: white;
+	}
+	h4 {
+		color: lighten(dodgerblue, 30%);
+	}
 }
 
 

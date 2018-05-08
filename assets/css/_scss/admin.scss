@@ -2,8 +2,8 @@
 =            GLOBALS            =
 =============================*/
 
-@import "global";
-@import "custom";
+// @import "global";
+// @import "custom";
 
 /*=======================================
 =       ADMIN:  PLUGIN STYLES          =
@@ -15,7 +15,7 @@
 
 		tr.active td, th {
 			// border: 1rem solid red;
-			background-color: lighten($indigo, 45%);
+			background-color: lighten(indigo, 45%);
 		}
 
 	}	
