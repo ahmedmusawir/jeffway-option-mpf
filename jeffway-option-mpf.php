@@ -29,7 +29,8 @@ require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-metabox-textarea
 require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-metabox-text-input.php' );
 require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-metabox-select.php' );
 require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-metabox-checkbox.php' );
-require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-checkbox-test.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-metabox-radio.php' );
+// require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-checkbox-test.php' );
 
 
 //Admin Main Page
@@ -77,6 +78,10 @@ function moose_post_notice_start() {
 
 	//MPF CHECKBOX META BOX 
 	$make_checkbox = new MPFAddCustomMetaboxCheckbox();
+
+	//MPF RADIO META BOX 
+	$make_checkbox = new MPFAddCustomMetaboxRadio();
+	
 }
 
 moose_post_notice_start();

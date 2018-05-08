@@ -39,13 +39,13 @@ class MPFAddCustomMetaboxCheckbox
 	public function checkboxDisplayMPF( $post ) {
 
 		$meta = get_post_meta( $post->ID );
-		$_mpf_checkbox_meta_key = ( isset( $meta['_mpf_checkbox_meta_key'][0] ) &&  '1' === $meta['_mpf_checkbox_meta_key'][0] ) ? 1 : 0;
+		$mytheme_checkbox_value = ( isset( $meta['mytheme_checkbox_value'][0] ) &&  '1' === $meta['mytheme_checkbox_value'][0] ) ? 1 : 0;
 		wp_nonce_field( basename( __FILE__ ), 'mpf_checkbox_meta_box_nonce' );
 
 	?>
 
 		<label>
-			<input type="checkbox" name="_mpf_checkbox_meta_key" value="1" <?php checked( $_mpf_checkbox_meta_key, 1 ); ?> /><?php esc_attr_e( 'Checkbox value', 'mytheme' ); ?>
+			<input type="checkbox" name="mytheme_checkbox_value" value="1" <?php checked( $mytheme_checkbox_value, 1 ); ?> /><?php esc_attr_e( 'Checkbox value', 'mytheme' ); ?>
 		</label>
 
 
@@ -71,9 +71,9 @@ class MPFAddCustomMetaboxCheckbox
 
 		if ( $is_autosave || $is_revision || !$is_valid_nonce ) return;
 
-		$_mpf_checkbox_meta_key = ( isset( $_POST['_mpf_checkbox_meta_key'] ) && '1' === $_POST['_mpf_checkbox_meta_key'] ) ? 1 : 0; // Input var okay.
+		$mytheme_checkbox_value = ( isset( $_POST['mytheme_checkbox_value'] ) && '1' === $_POST['mytheme_checkbox_value'] ) ? 1 : 0; // Input var okay.
 
-		update_post_meta( $post_id, '_mpf_checkbox_meta_key', esc_attr( $_mpf_checkbox_meta_key ) );
+		update_post_meta( $post_id, 'mytheme_checkbox_value', esc_attr( $mytheme_checkbox_value ) );
 	}	
 }
 
