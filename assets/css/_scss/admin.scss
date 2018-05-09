@@ -2,7 +2,7 @@
 =            GLOBALS            =
 =============================*/
 
-// @import "global";
+@import "global";
 // @import "custom";
 
 /*=======================================
@@ -19,6 +19,20 @@
 		}
 
 	}	
+}
+
+/**
+ *
+ * SHORTCODE ADMIN PAGE
+ *
+ */
+#block-one {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+
+	h5 {
+		font-size: 1rem;
+	}
 }
 
 

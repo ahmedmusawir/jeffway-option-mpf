@@ -32,6 +32,10 @@ require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-metabox-checkbox
 require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-metabox-radio.php' );
 // require_once( plugin_dir_path( __FILE__ ) . '/inc/Metabox/class-checkbox-test.php' );
 
+//Adding Shortcodes
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Shortcodes/class-shortcode-social.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Shortcodes/class-shortcode-lorem.php' );
+
 
 //Admin Main Page
 require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/AdminMenu/class-settings-validation.php' );
@@ -44,6 +48,10 @@ require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/AdminSubMenu/class-subme
 require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/AdminSubMenu/class-submenu-settings-callbacks.php' );
 require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/AdminSubMenu/class-submenu-option-mpf.php' );
 require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/AdminSubMenu/class-submenu-frontend-display.php' );
+
+//Shortcodes Sub Menu Page
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/ShortcodeSubMenu/class-shortcode-submenu-settings-callbacks.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Pages/ShortcodeSubMenu/class-shortcode-submenu-option-mpf.php' );
 
 function moose_post_notice_start() {
 
@@ -81,7 +89,16 @@ function moose_post_notice_start() {
 
 	//MPF RADIO META BOX 
 	$make_checkbox = new MPFAddCustomMetaboxRadio();
+
+	//ADD SOCIAL SHORTCODE 	
+	$social_shortcode = new MPFSocialShortcode();
 	
+	//ADD SOCIAL SHORTCODE 	
+	$social_shortcode = new MPFLoremShortcode();
+
+	//SHORTCODE SUBMENU INSTANCES
+	$shortcode_submenu_options = new ShortcodeSubmenuOptionMPF();
+
 }
 
 moose_post_notice_start();

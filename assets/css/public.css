@@ -4,6 +4,7 @@
 /*=============================
 =            TOOLS            =
 =============================*/
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 /*=======================================================
 =            Customize Bootstrap 4 Variables            =
 =======================================================*/
@@ -6661,5 +6662,36 @@ pre {
     color: white; }
   .post-notice-meta h4 {
     color: #b7dbff; }
+
+/**
+ *
+ * Social Shortcode Block
+ *
+ */
+#MPF-SOCIAL-BLOCK {
+  padding: 2rem 2rem;
+  background-color: hotpink;
+  color: white; }
+  @media (max-width: 500px) {
+    #MPF-SOCIAL-BLOCK {
+      padding: 2rem .5rem 1rem; }
+      #MPF-SOCIAL-BLOCK .title {
+        padding-left: 1.5rem; } }
+  #MPF-SOCIAL-BLOCK h1, #MPF-SOCIAL-BLOCK h2, #MPF-SOCIAL-BLOCK h3, #MPF-SOCIAL-BLOCK h4, #MPF-SOCIAL-BLOCK h5, #MPF-SOCIAL-BLOCK p {
+    color: white; }
+  #MPF-SOCIAL-BLOCK ul li {
+    list-style: none; }
+    #MPF-SOCIAL-BLOCK ul li a {
+      color: #ffcfe7;
+      font-size: 1.2rem; }
+      #MPF-SOCIAL-BLOCK ul li a i {
+        padding-right: 1rem;
+        font-size: 1.5rem;
+        color: white; }
+      @media (max-width: 500px) {
+        #MPF-SOCIAL-BLOCK ul li a {
+          font-size: .8rem; }
+          #MPF-SOCIAL-BLOCK ul li a i {
+            font-size: 1rem; } }
 
 /*# sourceMappingURL=public.css.map */

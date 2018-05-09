@@ -54,7 +54,54 @@ pre {
 }
 
 
+/**
+ *
+ * Social Shortcode Block
+ *
+ */
+#MPF-SOCIAL-BLOCK {
 
+	padding: 2rem 2rem;
+	background-color: hotpink;
+	color: white;
+
+	@media (max-width: 500px) {
+		padding: 2rem .5rem 1rem;
+
+		.title {
+			padding-left: 1.5rem;
+		}
+	}
+
+	h1,h2,h3,h4,h5,p {
+		color: white;
+	}
+	
+	ul {
+		li {
+			list-style: none;
+
+			a {
+				color: lighten(hotpink, 20%);
+				font-size: 1.2rem;
+
+				i {
+					padding-right: 1rem;
+					font-size: 1.5rem;
+					color: lighten(hotpink, 30%);
+				}
+
+				@media (max-width: 500px) {
+					font-size: .8rem;
+
+					i {
+						font-size: 1rem;
+					}
+				}
+			}
+		}
+	}
+}
 
 
 
