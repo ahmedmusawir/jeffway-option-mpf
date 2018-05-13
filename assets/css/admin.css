@@ -6634,9 +6634,6 @@ a {
 /*=======================================
 =       ADMIN:  PLUGIN STYLES          =
 =======================================*/
-.wp-list-table #the-list tr.active td, .wp-list-table #the-list th {
-  background-color: #bf69ff; }
-
 /**
  *
  * SHORTCODE ADMIN PAGE

@@ -22,6 +22,9 @@
 	h4 {
 		color: dodgerblue;
 	}
+	p {
+		color: white;
+	}
 }
 
 .options-content {
@@ -38,6 +41,13 @@
 
 pre {
 	color: white;
+}
+code {
+	background-color: transparent !important;
+}
+.result-box {
+	background-color: black;
+	padding: 2rem;
 }
 
 .post-notice-meta {

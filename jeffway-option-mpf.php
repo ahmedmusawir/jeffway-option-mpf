@@ -20,6 +20,9 @@ define( "PLUGIN_DIR", ABSPATH . 'wp-content/plugins/jeffway-option-mpf' );
 //Scripts Enqueue
 require_once( plugin_dir_path( __FILE__ ) . 'class-enqueue.php' );
 
+//WPDb Testing
+require_once( plugin_dir_path( __FILE__ ) . '/inc/WPDb/class-wpdb-test.php' );
+
 //Custom Post Type 
 require_once( plugin_dir_path( __FILE__ ) . '/inc/Cpt/class-custom-post.php' );
 
@@ -98,6 +101,9 @@ function moose_post_notice_start() {
 
 	//SHORTCODE SUBMENU INSTANCES
 	$shortcode_submenu_options = new ShortcodeSubmenuOptionMPF();
+
+	//WPDB TESTING
+	$shortcode_submenu_options = new WPDBTesting();
 
 }
 

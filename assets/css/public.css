@@ -6643,6 +6643,8 @@ a {
     color: white; }
   #mpf-header-box h4 {
     color: dodgerblue; }
+  #mpf-header-box p {
+    color: white; }
 
 .options-content {
   padding-bottom: 3rem;
@@ -6653,6 +6655,13 @@ a {
 
 pre {
   color: white; }
+
+code {
+  background-color: transparent !important; }
+
+.result-box {
+  background-color: black;
+  padding: 2rem; }
 
 .post-notice-meta {
   padding: 3rem 2rem;
