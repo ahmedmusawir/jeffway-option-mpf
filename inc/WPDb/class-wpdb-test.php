@@ -7,7 +7,8 @@ class WPDBTesting
 	
 	function __construct()
 	{
-		add_action( 'wp_head', array(  $this, 'displayWBDbResults' ) );
+		add_action( 'wp_footer', array(  $this, 'displayWBDbResults' ) );
+		// add_action( 'wp_head', array(  $this, 'displayWBDbResults' ) );
 	}
 
 	public function displayWBDbResults()
@@ -101,6 +102,11 @@ class WPDBTesting
 		echo '<h5>INSERT INTO wp_options Table</h5> <br>';
 		echo '<pre style="background-color: #e0e0e0;">';
 		highlight_file('wpdb-options-table-code.php');
+		echo '</pre>';
+
+		echo '<h5>PREPARE QUERY INSERT INTO wp_options Table</h5> <br>';
+		echo '<pre style="background-color: #e0e0e0;">';
+		highlight_file('wpdb-prepare-insert-code.php');
 		echo '</pre>';
 
 

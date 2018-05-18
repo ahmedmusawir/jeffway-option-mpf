@@ -23,6 +23,10 @@ require_once( plugin_dir_path( __FILE__ ) . 'class-enqueue.php' );
 //WPDb Testing
 require_once( plugin_dir_path( __FILE__ ) . '/inc/WPDb/class-wpdb-test.php' );
 
+//Widgets Main
+require_once( plugin_dir_path( __FILE__ ) . '/inc/Widgets/class-widget-main.php' );
+// require_once( plugin_dir_path( __FILE__ ) . '/inc/Widgets/class-jw-messager.php' );
+
 //Custom Post Type 
 require_once( plugin_dir_path( __FILE__ ) . '/inc/Cpt/class-custom-post.php' );
 
@@ -104,6 +108,9 @@ function moose_post_notice_start() {
 
 	//WPDB TESTING
 	$shortcode_submenu_options = new WPDBTesting();
+
+	//WIDGETS MAIN
+	$widgets = new WidgetMain();
 
 }
 
