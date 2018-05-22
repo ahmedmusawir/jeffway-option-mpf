@@ -79,12 +79,30 @@ class WPDBTesting
 		print_r($result[2]->post_title) . '<br>';
 		echo '</pre>';
 
+		echo '<h5>From wp_MPF_First_Table</h5> <br>';
+		echo '<h5>$wpdb->get_results( "SELECT * FROM wp_MPF_First_Table", OBJECT )</h5> <br>';
+		$results = $wpdb->get_results( 'SELECT * FROM wp_MPF_First_Table', OBJECT );
+		echo '<pre>';
+		echo '<h5>print_r($result[2]->id)</h5><br>';
+		print_r($results[2]->id) . '<br>';
+		print_r($results) . '<br>';
+
+		foreach ($resuts as $result) {
+			
+			echo "<ul class='list-group'>";
+			echo "<li class='list-group-item'>";
+			echo "</li>";
+			echo "</ul>";
+		}
+
+		echo '</pre>';	
+
 		echo '<h5>CREATE TABLE wp_MPF_First_Table</h5> <br>';
 		echo '<pre style="background-color: #e0e0e0;">';
 		highlight_file('wpdb-create-table-code.php');
 		echo '</pre>';
 
-		echo '<h5>DELETE TABLE wp_MPF_First_Table</h5> <br>';
+		echo '<h5>DROP TABLE wp_MPF_First_Table</h5> <br>';
 		echo '<pre style="background-color: #e0e0e0;">';
 		highlight_file('wpdb-drop-table-code.php');
 		echo '</pre>';
@@ -94,9 +112,14 @@ class WPDBTesting
 		highlight_file('wpdb-insert-code.php');
 		echo '</pre>';
 
-		echo '<h5>INSERT INTO wp_MPF_First_Table</h5> <br>';
+		echo '<h5>UPDATE INTO wp_MPF_First_Table</h5> <br>';
 		echo '<pre style="background-color: #e0e0e0;">';
 		highlight_file('wpdb-update-code.php');
+		echo '</pre>';
+
+		echo '<h5>DELETE FROM wp_MPF_First_Table</h5> <br>';
+		echo '<pre style="background-color: #e0e0e0;">';
+		highlight_file('wpdb-delete-code.php');
 		echo '</pre>';
 
 		echo '<h5>INSERT INTO wp_options Table</h5> <br>';
@@ -109,17 +132,12 @@ class WPDBTesting
 		highlight_file('wpdb-prepare-insert-code.php');
 		echo '</pre>';
 
+		echo '<h5>PREPARE QUERY SELECT From wp_options Table</h5> <br>';
+		echo '<pre style="background-color: #e0e0e0;">';
+		highlight_file('wpdb-prepare-select-code.php');
+		echo '</pre>';
 
-
-		echo '<h5>From wp_MPF_First_Table</h5> <br>';
-		echo '<h5>$wpdb->get_results( "SELECT * FROM wp_MPF_First_Table", OBJECT )</h5> <br>';
-		$result = $wpdb->get_results( 'SELECT * FROM wp_MPF_First_Table', OBJECT );
-		echo '<pre>';
-		// print_r($result) . '<br>';
-		// print_r($result[2]) . '<br>';
-		echo '<h5>print_r($result[2]->id)</h5><br>';
-		print_r($result[2]->id) . '<br>';
-		echo '</pre>';	
+		
 		echo '</section>';
 	}
 }
