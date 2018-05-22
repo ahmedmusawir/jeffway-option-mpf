@@ -21,9 +21,7 @@ class WPDBTesting
 			<h4>
 				Moose Plugin Framework 1.0!
 			</h4>
-			<h3>
-				USING WPDBTesting
-			</h3>
+			
 
 			
 
@@ -31,7 +29,9 @@ class WPDBTesting
 		<?php
 
 		global $wpdb;
-
+		echo '<hr>';
+		echo '<h1>WPDB API</h1> <br>';
+		echo '<hr>';
 		echo '<h5>Returns 1st row title:(SQL must be single quote not double)</h5> <br>';
 		echo '<p>$wpdb->get_var( "SELECT post_title FROM wp_posts" )</p><br>';
 		$result = $wpdb->get_var( 'SELECT post_title FROM wp_posts' );
@@ -84,13 +84,14 @@ class WPDBTesting
 		$results = $wpdb->get_results( 'SELECT * FROM wp_MPF_First_Table', OBJECT );
 		echo '<pre>';
 		echo '<h5>print_r($result[2]->id)</h5><br>';
-		print_r($results[2]->id) . '<br>';
-		print_r($results) . '<br>';
+		// print_r($results[2]->id) . '<br>';
+		// print_r($results) . '<br>';
 
-		foreach ($resuts as $result) {
+		foreach ($results as $result) {
 			
 			echo "<ul class='list-group'>";
-			echo "<li class='list-group-item'>";
+			echo "<li class='list-group-item' style='color:black'>";
+			echo $result->name;
 			echo "</li>";
 			echo "</ul>";
 		}
@@ -136,6 +137,61 @@ class WPDBTesting
 		echo '<pre style="background-color: #e0e0e0;">';
 		highlight_file('wpdb-prepare-select-code.php');
 		echo '</pre>';
+
+		/*===========================================
+		=            WP SETTING API CODE            =
+		===========================================*/
+		echo '<hr>';
+		echo '<h1>WP SETTINGS API</h1> <br>';
+		echo '<hr>';
+		echo '<h5>WP SETTINGS TOP Level Menu</h5> <br>';
+		echo '<pre style="background-color: #e0e0e0;">';
+		highlight_file('wp-settings-main-menu-code.php');
+		echo '</pre>';		
+		
+		
+		echo '<h5>WP SETTINGS Registration</h5> <br>';
+		echo '<pre style="background-color: #e0e0e0;">';
+		highlight_file('wp-settings-registration-code.php');
+		echo '</pre>';
+
+		echo '<h5>WP SETTINGS Defaults</h5> <br>';
+		echo '<pre style="background-color: #e0e0e0;">';
+		highlight_file('wp-settings-defaults-code.php');
+		echo '</pre>';
+
+		echo '<h5>WP SETTINGS TEXT FIELD CALLBACK</h5> <br>';
+		echo '<pre style="background-color: #e0e0e0;">';
+		highlight_file('wp-settings-text-field-callback.php');
+		echo '</pre>';
+
+		echo '<h5>WP SETTINGS RADIO FIELD CALLBACK</h5> <br>';
+		echo '<pre style="background-color: #e0e0e0;">';
+		highlight_file('wp-settings-radio-field-callback.php');
+		echo '</pre>';
+
+		echo '<h5>WP SETTINGS TEXT AREA FIELD CALLBACK</h5> <br>';
+		echo '<pre style="background-color: #e0e0e0;">';
+		highlight_file('wp-settings-textarea-field-callback.php');
+		echo '</pre>';
+
+		echo '<h5>WP SETTINGS CHECKBOX FIELD CALLBACK</h5> <br>';
+		echo '<pre style="background-color: #e0e0e0;">';
+		highlight_file('wp-settings-checkbox-field-callback.php');
+		echo '</pre>';
+
+		echo '<h5>WP SETTINGS SELECT FIELD CALLBACK</h5> <br>';
+		echo '<pre style="background-color: #e0e0e0;">';
+		highlight_file('wp-settings-select-field-callback.php');
+		echo '</pre>';
+
+		echo '<h5>WP SETTINGS VALIDATION CALLBACK</h5> <br>';
+		echo '<pre style="background-color: #e0e0e0;">';
+		highlight_file('wp-settings-validation-callback.php');
+		echo '</pre>';
+
+		/*=====  End of WP SETTING API CODE  ======*/
+		
 
 		
 		echo '</section>';
