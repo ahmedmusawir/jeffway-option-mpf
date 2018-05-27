@@ -1,3 +1,11 @@
+
+	CUSTOM POST TYPE
+	
+	portfolio (slug)
+	portfolio-item (taxonomy)
+	portfolio (taxonomy slug)
+	REST API enabled
+
 <?php 
 
 /**
@@ -8,8 +16,8 @@ class CustomPostType
 	
 	public function __construct()
 	{
-  		add_action( 'init', array( $this, 'createPortfolioCpt' ) );
-		add_action( 'init', array( $this, 'createPortfolioItemTaxonomies' ) );
+  	add_action( 'init', array( $this, 'createPortfolioCpt' ) );
+	  add_action( 'init', array( $this, 'createPortfolioItemTaxonomies' ) );
 
 	}
 
@@ -84,6 +92,8 @@ class CustomPostType
 	  register_taxonomy( 'portfolio-item', array( 'portfolio' ), $args );
 	 
 	}	
-
-
 }
+
+//MAKE PORTFOLIO CUSTOM POST TYPE 
+$make_cpt = new CustomPostType();
+

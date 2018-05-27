@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+WP METABOX RADIO CODE 
 
 /**
 * Custom Metabox Radio Class

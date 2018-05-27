@@ -55,6 +55,25 @@ class MPFEnqueue
 			'1.0'
 
 		);
+		// wp_enqueue_script(
+			
+		// 	'moose-bootstrap-popper',
+		// 	'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js',
+		// 	array('jquery'),
+		// 	'1.0',
+		// 	true
+
+		// );
+
+		wp_enqueue_script(
+			
+			'moose-bootstrap-4',
+			'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js',
+			array('jquery'),
+			'1.0',
+			true
+
+		);
 		
 	}	
 	public function enqueue_public_scripts() {
@@ -64,7 +83,28 @@ class MPFEnqueue
 			'moose-post-notice-public',
 			plugins_url( '/assets/js/public.js', __FILE__ ),
 			array('jquery'),
-			'1.0'
+			'1.0',
+			true
+
+		);
+
+		// wp_enqueue_script(
+			
+		// 	'moose-bootstrap-popper',
+		// 	'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js',
+		// 	array('jquery'),
+		// 	'1.0',
+		// 	true
+
+		// );
+
+		wp_enqueue_script(
+			
+			'moose-bootstrap-4',
+			'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js',
+			array('jquery'),
+			'1.0',
+			true
 
 		);
 	}	

@@ -1,4 +1,9 @@
-<?php 
+
+		LOREM SHORTCODE CODE 
+		[lorem repeat=3]There is nothing divine anywhere ...[/lorem] 
+		[lorem]
+
+<?php
 
 /**
 * Class Social Shorcode
@@ -63,3 +68,5 @@ class MPFLoremShortcode
 	}
 }
 
+//ADD SOCIAL SHORTCODE 	
+$social_shortcode = new MPFLoremShortcode();

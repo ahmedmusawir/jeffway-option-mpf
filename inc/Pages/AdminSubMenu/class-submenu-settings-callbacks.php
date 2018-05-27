@@ -135,9 +135,9 @@ class SubmenuSettingsCallbacks extends SubmenuValidateSettingsMPF
 		echo '<input id="submenu_options_'. $id .'" name="submenu_options['. $id .']" type="checkbox" value="1"'. $checked .'> ';
 		echo '<label for="submenu_options_'. $id .'">'. $label .'</label>';
 
-		echo "<pre>the options:";
-		echo var_dump($options);
-		echo "</pre>";
+		// echo "<pre>the options:";
+		// echo var_dump($options);
+		// echo "</pre>";
 		
 	}	
 

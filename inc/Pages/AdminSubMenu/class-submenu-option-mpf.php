@@ -16,17 +16,18 @@ class SubmenuOptionMPF extends SubmenuSettingsCallbacks
 
 	public function addSubMenuPage() {
 
-		/*
-		add_menu_page (
-			string 		$page_title,
-			string 		$menu_title,
-			string 		$capability,
-			string 		$menu_slug or $page_slug,
-			callable 	$function = '',
-			string 		$icon_url = '',
-			int 		$position = null
-		)
-		*/
+	/*
+	
+	add_submenu_page(
+		string   $parent_slug,
+		string   $page_title,
+		string   $menu_title,
+		string   $capability,
+		string   $menu_slug,
+		callable $function = ''
+	);
+	
+	*/
 
 		add_submenu_page( 
 			'jw-option-mpf', 

@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+WP METABOX SELECT CODE 
 
 /**
 * Custom Metabox Select Class

@@ -1,3 +1,5 @@
+WIDGET BODY (main code)
+
 <?php 
 
 class MPFFirstWidget extends WP_Widget {

@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+WP METABOX TEXTAREA CODE 
 
 /**
 * Custom Metabox TextArea Class
@@ -90,4 +92,3 @@ class MPFAddCustomMetaboxTextArea
 		}
 	}	
 }
-

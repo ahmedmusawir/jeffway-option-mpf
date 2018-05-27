@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+WP METABOX CHECKBOX CODE 
 
 /**
 * Custom Metabox Checkbox Class
